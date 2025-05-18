@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}乐曲查询 - CHUNITHM{% endblock %}
+
+{% block content %}
+<div class="search-container">
+    <h2>乐曲查询</h2>
+
+    <!-- 搜索表单 -->
+    <div class="search-box">
+        <input type="text" id="search-input" placeholder="输入歌曲名、艺术家或难度...">
+        <button id="search-btn">搜索</button>
+    </div>
+
+    <!-- 筛选选项 -->
+    <div class="filters">
+        <div class="filter-group">
+            <label for="level-filter">难度等级:</label>
+            <select id="level-filter">
+                <option value="">全部</option>
+                <option value="3">3 (BASIC)</option>
+                <option value="5">5 (ADVANCED)</option>
+                <option value="7">7 (EXPERT)</option>
+                <option value="10">10 (MASTER)</option>
+                <option value="13">13+ (ULTRA)</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="genre-filter">流派:</label>
+            <select id="genre-filter">
+                <option value="">全部</option>
+                <option value="ORIGINAL">ORIGINAL</option>
+                <option value="VARIETY">VARIETY</option>
+                <option value="東方Project">東方Project</option>
+                <option value="niconico">niconico</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- 搜索结果 -->
+    <div class="results">
+        <div class="result-header">
+            <span class="header-title">歌曲</span>
+            <span class="header-artist">艺术家</span>
+            <span class="header-level">难度</span>
+            <span class="header-bpm">BPM</span>
+        </div>
+        <div id="results-list" class="results-list">
+            <!-- 动态加载结果 -->
+        </div>
+    </div>
+
+    <!-- 分页控制 -->
+    <div class="pagination">
+        <button id="prev-page" disabled>上一页</button>
+        <span id="page-info">第 1 页</span>
+        <button id="next-page">下一页</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/music_search.js') }}"></script>
+{% endblock %}

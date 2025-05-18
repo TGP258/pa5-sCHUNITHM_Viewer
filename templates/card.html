@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card-container">
+    {% for card in cards %}
+    <div class="card" data-id="{{ card.id }}">
+        <h2>{{ card.title }}</h2>
+        <p>艺术家: {{ card.artist }}</p>
+        <p>难度: {{ card.level_display }}</p>
+        <p>分数: {{ card.score }}</p>
+        <img src="{{ url_for('views.get_card_image', card_id=card.id) }}" 
+             alt="{{ card.title }} 成绩卡">
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
