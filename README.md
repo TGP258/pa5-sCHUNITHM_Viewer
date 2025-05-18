@@ -1,5 +1,7 @@
 此项目为[TGP258/chuni_b50](https://github.com/TGP258/chuni_b50)的衍生项目，主要使用了Flask+MySQL实现了一个简单的CHUNITHM乐曲信息查询网站。
 
+![879526cd4bb558e94454a10347c7dbe1](https://github.com/user-attachments/assets/9b6fdc28-e2b1-4df3-aaf4-0e7e27fe351c)
+
 > Tips：目前仅实现了查歌功能，B50(B30)功能尚未完整移植
 
 ## 关于数据库 
