@@ -1,4 +1,8 @@
+import pymysql
 from flask import Blueprint, render_template, send_from_directory, current_app, abort
+from pymysql import cursors
+# from sqlalchemy.dialects.mysql import pymysql.cursors
+
 from services.data_loader import load_combined_data
 from services.card_renderer import card_renderer, render_cards
 from services.database import get_db
@@ -35,8 +39,8 @@ def get_card_image(card_id):
 def song_detail(song_id):
     # 获取歌曲信息
     db = get_db()
-    cursor = db.cursor(dictionary=True)
-
+    # cursor = db.cursor(dictionary=True)
+    cursor = db.cursor(pymysql.cursors.DictCursor)
     try:
         # 获取基础信息
         cursor.execute("""
